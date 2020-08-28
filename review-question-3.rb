@@ -30,7 +30,7 @@ class Photo
 
     def initialize
         @@all << self
-        @comments = []
+        # @comments = []
     end
 
     def self.all
@@ -38,7 +38,12 @@ class Photo
     end
 
     def make_comment(comment)
-        @comments << comment 
+        # @comments << comment 
+        Comment.new("comment")
+    end
+
+    def comments
+        Comment.all.select {|comment| comment.photo == self}
     end
 
 
